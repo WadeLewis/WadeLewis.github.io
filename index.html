@@ -24,14 +24,7 @@ In addition, we also conducted exploratory analysis outside of this dataset to g
 
 
 <h3>Data Collection and Web Scraping</h3>
-<p>Our job post data came from Indeed.com. By taking data directly from Indeed, we could compare how our machine learning outcomes compared to Indeed’s. Do we recommend similar lists of job posts or are the listed recommendations different? To collect this data we utilized a web scraping extraction pipeline. This was done in 4 steps:
-<ol>
-<li>Acquire search results and save the raw search results.</li>
-<li>Extract job links from search results and save the links to a .txt file.</li>
-<li>For each job link, save the job post locally as an html file.</li>
-<li>Extract and clean job posting content for analysis.</li>
-</ol>
-<p>We scraped 19,029 job posts, spread across 10 job searches in 10 locations, for an average of ~190 jobs per location/search combination. The data includes job titles, companies, locations, full job description, the proportions of the description that falls under different topics such as text that pertains to a data scientist topic, or text that contains job requirement content. The topics that proportions were calculated for were identified using Topic Modeling.</p>
+<p>We scraped 19,029 job posts from Indeed.com, spread across 10 job searches in 10 locations, for an average of ~190 jobs per location/search combination. The data includes job titles, companies, locations, full job description, the proportions of the description that falls under different topics such as text that pertains to a data scientist topic, or text that contains job requirement content. The topics that proportions were calculated for were identified using Topic Modeling.</p>
 
 
 <h3>Topic Modeling</h3>

@@ -13,9 +13,7 @@
 \nFurthermore, our team looked outside of our gathered dataset to look at subsets of the current job market.  From this analysis, we identified California and Texas as the states with the greatest job availability for statistics majors, while eastern states such as New York and Connecticut had the highest-paying positions available for statistic majors. 
 </p>
 
-<ul>
-<li> <a href="/9%20Topic%20LDAvis.html"> Topic Modeling Visualization </a> </li>
-</ul>
+
 
 <h3>Introduction</h3>
 <p>In this report, we aim to build a job recommender system, which would be used in the back-end of a job-alert system, a popular feature on these job search sites.  Using data from Indeed, we were able to build a pipeline to gather job posts, build topic models on the content, and recommend jobs with similar content.  We evaluated our job recommendation system by recommending similar Data Science jobs, and comparing that to indeed’s existing search, as well as ‘random noise’. 
@@ -30,17 +28,10 @@ In addition, we also conducted exploratory analysis outside of this dataset to g
 <h3>Topic Modeling</h3>
 <p>To recommend similar jobs, we needed to quantify the content of each job post; to achieve this, we turned to Topic Modeling. Topic modeling is a means of exploring unidentified structures within a set of documents. We want to develop a topic model to help us quantify the contents of each job by assigning a numeric vector describing the contents of the post. We used the topic model Latent Dirichlet Allocation (LDA) to identify unobserved topics within the data.</p>
 <p>LDA is an unsupervised learning algorithm, so we didn’t know ahead of time what topics would be identified. After topics were identified by the algorithm, we manually added labels based on what we thought the topics meant. We identified the following 9 topics using keywords given by the LDAvis (shown below).</p>
-<ul style="list-style-type:none">
-<li>Topic 1 - Finance/Business/Investment<br></li>
-<li>Topic 2 - Performing essential tasks, typical work like heavy lifting or basic office tasks<br></li>
-<li>Topic 3 - Software engineering, app and system work<br></li>
-<li>Topic 4 - Team/product/platform information<br></li>
-<li>Topic 5 - Machine learning, data science and analytics<br></li>
-<li>Topic 6 - Gender, sexual, religion, equal opportunity<br></li>
-<li>Topic 7 - Lab/research/educational work<br></li>
-<li>Topic 8 - Supply chain, life insurance, benefits, 401k<br></li>
-<li>Topic 9 - Time, salary, job type, experience of applicant<br></li>
+<ul>
+<li> <a href="/9%20Topic%20LDAvis.html"> You can explore the topics yourself here! </a> </li>
 </ul>
+
 <p>With these newly identified topics, we were able to continue on to conduct cluster analysis on the job posts and recommend similar jobs based on these topics.</p>
 
 

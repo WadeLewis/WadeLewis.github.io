@@ -27,12 +27,12 @@ In addition, we also conducted exploratory analysis outside of this dataset to g
 
 <h3>Topic Modeling</h3>
 <p>To recommend similar jobs, we needed to quantify the content of each job post; to achieve this, we turned to Topic Modeling. Topic modeling is a means of exploring unidentified structures within a set of documents. We want to develop a topic model to help us quantify the contents of each job by assigning a numeric vector describing the contents of the post. We used the topic model Latent Dirichlet Allocation (LDA) to identify unobserved topics within the data.</p>
-<p>LDA is an unsupervised learning algorithm, so we didn’t know ahead of time what topics would be identified. After topics were identified by the algorithm, we manually added labels based on what we thought the topics meant. We identified the following 9 topics using keywords given by the LDAvis (shown below).</p>
+
 <ul>
 <li> <a href="/9%20Topic%20LDAvis.html"> You can explore the topics yourself here! </a> </li>
 </ul>
 
-<p>With these newly identified topics, we were able to continue on to conduct cluster analysis on the job posts and recommend similar jobs based on these topics.</p>
+<p>With these newly identified topics, we clustered the job posts.  Later, we use these topics to recommend similar jobs.</p>
 
 
 <h3>Cluster Analysis</h3>

@@ -44,9 +44,36 @@ In addition, we also conducted exploratory analysis outside of this dataset to g
 
 
 <h3>Job Recommendation System Results: How our recommendations compare to Indeed</h3>
-<p>Sentence.</p>
+<p>We utilized the kNN algorithm to attempt to build a reliable recommendation function to match similar jobs. Our intuition was that jobs with similar topic distributions would be similar enough to merit a recommendation. Below, we analyzed the effectiveness of recommending a Data Scientist job using this method. The post for which we are recommending new jobs contains a summary of contents as follows:</p>
+<p> </p>    
+
+<p>Given a Data Scientist position with the following characteristics:</p>
+
+<ul>
+<li> Equal Opportunity employer w/ benefits & 401k </li>
+<li> 2+ years experience with data analysis in R, Python, etc. </li>
+<li> Git, Agile Development, XML, JSON,  </li>
+<li> Bachelor’s degree in Computer Science </li>
+</ul>
+
+<p>We want to recommmend 50 similar jobs.  We will compare our recommended jobs with Searched Jobs, and also with a random selection of jobs from our sample to see if our recommendations are just noise.</p>    
+
+<p> Visualizing the job titles: </p>
+<img src="job Titles - Searched.png"> 
+<img src="job Titles - Recommended.png"> 
+<img src="job Titles - Random.png"> 
 
 
+<p> Visualizing the Cluster analysis</p>
+<img src="Comparison - Data Science Searched clusters.png"> 
+<img src="Comparison - Recommended clusters.png"> 
+<img src="Comparison - Random clusters.png"> 
+
+<p> It appears that our job recommendation system wasn't quite as good as we had hoped.  It's difficult to distinguish noise from our recommendations.  </p>
+
+
+
+<p> </p>
 <h3>Job Market by State</h3>
 <p>With our collected data from Indeed, we conducted some exploratory analysis on the job market. These results are specific to the job market during early April of 2018.</p>
 <p>Our Indeed data consists of job postings for postions located across 12 states: New York, Connecticut, New Jersey, Pennsylvania, Illinois, Colorado, Washington, Wisconsin, California, Florida, Georgia, Texas. Out of these 12 states, we identified 6 that were strongly correlated with trends found in our cluster analysis. Therefore, in addition to gaining an understanding of the volume and content of the current job market, through this exploratory analysis we aimed to examine the relationships (if any) between these selected states and job clusters.</p>

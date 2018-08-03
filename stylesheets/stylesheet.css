@@ -9,8 +9,11 @@ body {
   line-height: 1.5;
   color: #606c71; }
 
+figure img {
+    vertical-align: center;
+}
+
 figure figcaption {
-    border: 1px dotted blue;
     text-align: center;
 }
 

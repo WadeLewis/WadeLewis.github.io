@@ -43,41 +43,38 @@
                 
                 My client is undergoing a Class Action Lawsuit that requires me to analyze payment histories for nearly 10,000 customer accounts.  This shouldn't be too difficult - Just query the database for payment histories and get to work! <br>
 
-                <br>...<i>Right?</i> <br> <br>
-
-                After accepting the job, I found out that my client doesn't have access to the database containing payment histories...  The data are stored remotely with a company named Suburban Software Systems (SSS), and my client refuses to ask them for a copy of their data stores (long story, but these are the requirements I was given.)  <br><br>
+                <br>...<i>But... I cannot access the database!</i> <br> <br>
 
                 So, I needed to get creative if I wanted to obtain the data in a structured format for processing.  I set to work with what I have:<br><br>
 
-                Each indidual member history can be queried, one at a time, by navigating a GUI and exporting the history to csv.  This process takes approximately 1-2 minutes per member.  Extracting 10k member histories by hand (as my client proposed) would take approximately 2 months, assuming I didn't stop to think or tackle any other projects (a difficult assumption by any stretch of the imagination). <br><br>
+                Each indidual member history can be queried by navigating a GUI, as visualized below.  This process takes approximately 1-2 minutes per member.  Extracting 10k member histories by hand would take two months!<br><br>
 
-                When looking at automation software, I decided to use PyAutoGUI, a GUI automation module for Python.  In three weeks, I successfully automated the extraction of ledgers -> CSVs, despite a lack of previous experience in GUI automation. <br><br>
+                I decided to use PyAutoGUI, and in three weeks, I successfully automated the ledger extraction. (Note, I've never done GUI automation before, so it took a bit of extra time).<br><br>
                 
-                However, the automation wasn't without it's hiccups: <br>
+                
+                <h3>Hiccups (w/ solutions included):</h3> <br>
                 <ul>
-                    <li> 1. SSS doesn't recognize keyboard input from any python module. </li>
-                    <li> 2. SSS has inconsistent loading time between menus.  Sometimes, menus load in under a second. Other times, the same menu may take over a minute to load.   </li>
-                    <li> 3. SSS freezes sporadically, causing script to break within 1-5 hours (impeding overnight & weekend extraction).</li>
+                    <li> 1. SSS doesn't recognize keyboard input from any python module. <li>1. Copy input (using pyperclip) and paste using a standard "Right Click $->$ paste" </li> </li></li>
+                    <li> 2. SSS has inconsistent loading time between menus.  Sometimes, menus load in under a second. Other times, the same menu may take over a minute to load. 
+                        <li> 2. Implement a patientlyLocate() function, which intermittently looks for the pixels on screen, allowing me to capitalize on quick load times, while staying robust to incredibly slow loading times. </li> </li>
+                    <li> 3. SSS freezes sporadically, causing script to break within 1-5 hours (impeding overnight & weekend extraction).
+                        <li> 3. Implement a 2-tiered approach to handle failure. The second tier has higher time cost (but higher success rate) than first tier.:
+                            <ul>
+                                <li> Tier 1: Try to navigate to main screen, record the failure, and move on to next ledger. </li>
+                                <li> Tier 2: If (a) fails, kill the SSS task, log in using another window.  Log out 
+                                        of SSS normally, and re-login to SSS, and move on to next ledger. </li>
+                            </ul>
+                        </li>
+                    </li>
                 </ul>
                 
-                My solutions to the aforementioned hiccups:  <br>
-                <ul>
-                    <li> 1. Copy input (using pyperclip) and paste using a standard "Right Click $->$ paste" </li>
-                    <li> 2. Implement a patientlyLocate() function, which intermittently looks for the pixels on screen, allowing me to capitalize on quick load times, while staying robust to incredibly slow loading times. </li>
-                    <li> 3. Implement a 2-tiered approach to handle failure. The second tier has higher time cost (but higher success rate) than first tier.:
-                        <ul>
-                            <li> Tier 1: Try to navigate to main screen, record the failure, and move on to next ledger. </li>
-                            <li> Tier 2: If (a) fails, kill the SSS task, log in using another window.  Log out 
-                                    of SSS normally, and re-login to SSS, and move on to next ledger. </li>
-                        </ul>
-                    </li>
-                <ul>
+                <h3>OUTCOME</h3>
                 With this implementation, I can extract the member ledgers 24/7 for next-to-no labor cost.  Further, we can expand this extraction as a means to back up the data on a monthly basis.  This way, we can maintain an internal database for in-house analysis.
             </div>
         </section>   
                 
         <footer class="site-footer">
-            I'd say I'm pretty hireable, but that's for you to determine (...No, not <i>you</i>, Mom... Sheesh).
+           (I promise, I'm a much better Data Scientist than Web-Developer!)
         </footer>
     </body>
 </html>
